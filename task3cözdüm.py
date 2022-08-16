@@ -4,7 +4,7 @@ import sys
 
 client = MongoClient('mongodb://localhost:27017/')
 db = client.dbbname
-#db.create_collection("coll")
+db.create_collection("coll")
 
 schema={"$jsonSchema":
           {
@@ -31,8 +31,6 @@ schema={"$jsonSchema":
                       "description": "can only be one of the enum values and is required"
                   },
                   "gpa": {
-                      # In case you might want to allow doubles OR int, then add
-                      # "int" to the bsonType array below:
                       "bsonType": ["double"],
                       "minimum": 0,
                       "description": "must be a double and is required"
